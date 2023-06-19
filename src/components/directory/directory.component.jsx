@@ -3,7 +3,7 @@ import Category from '../categories/category.component';
 
 const Directory = () => {
   return (
-    <div className='categories-container'>
+  <div className='categories-container'>
     <Category />
   </div>
   )
