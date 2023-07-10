@@ -8,7 +8,7 @@ import './index.scss'
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/', 
     element: <Root />,
     children: [
       {index: true, element: <Index />},
