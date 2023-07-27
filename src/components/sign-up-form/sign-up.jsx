@@ -1,5 +1,6 @@
 import { useState } from "react";
 import FormInput from "../form-input/form-input";
+import Button from "../button/button";
 import './sign-up.scss'
 import { createAuthUserWithEmailAndPassword, createUserDocFromAuth } from "../../utils/firebase/firebase";
 
@@ -83,7 +84,9 @@ export default function SignUpForm (){
                     value: confirmPassword
                 }}/>
 
-                <button type="submit">Sign Up</button>
+                {// eslint-disable-next-line react/no-children-prop
+                <Button type="submit" buttonText={`SIGN UP`}/> 
+                }
             </form>
         </div>
     )
