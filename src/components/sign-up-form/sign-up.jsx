@@ -4,7 +4,8 @@ import Button from "../button/button";
 import './sign-up.scss'
 import { createAuthUserWithEmailAndPassword, createUserDocFromAuth } from "../../utils/firebase/firebase";
 
-const defaultFormFields = {
+// eslint-disable-next-line react-refresh/only-export-components
+export const defaultFormFields = {
     displayName: '',
     email: '',
     password: '',

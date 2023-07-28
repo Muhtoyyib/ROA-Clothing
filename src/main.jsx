@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Root from './routes/root';
 import Shop from './routes/shop';
-import SignIn from './routes/sign-in/sign-in';
+import Authentication from './routes/authentication/authentication';
 import Index from './routes';
 import './index.scss'
 
@@ -18,8 +18,8 @@ const router = createBrowserRouter([
         element: <Shop />,
       },
       {
-        path:'/sign-in',
-        element: <SignIn />
+        path:'/auth',
+        element: <Authentication />
       }
     ]
   },
