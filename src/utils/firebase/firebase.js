@@ -61,4 +61,4 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
     return await signInWithEmailAndPassword(auth, email, password);
 }
 
-// Let's see how it goes now, hope it works.
+// Let's see how it goes now, hope it works. Is it working
