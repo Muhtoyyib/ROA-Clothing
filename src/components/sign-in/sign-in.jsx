@@ -16,6 +16,12 @@ export default function SignInForm (){
 
     console.log(formFields);
 
+    const handleChange = (event) => {
+        const {name, value} = event.target;
+
+        setFormFields({...formFields, [name]: value});
+    }
+
     const resetFormFields = () => {
         setFormFields(defaultFormFields);
     }
@@ -24,9 +30,11 @@ export default function SignInForm (){
         event.preventDefault();
 
         try{
-            const response = await signInAuthUserWithEmailAndPassword(email, password);
+            const {user} = await signInAuthUserWithEmailAndPassword(email, password);
 
-            console.log(response);
+            console.log(user);
+
+            resetFormFields();
         } catch (error){
 
             switch(error.code){
@@ -37,12 +45,7 @@ export default function SignInForm (){
                 default: console.log(error);
             }
         }
-    }
 
-    const handleChange = (event) => {
-        const {name, value} = event.target;
-
-        setFormFields({...formFields, [name]: value});
     }
 
     const signInWithGoogle = async () => {
