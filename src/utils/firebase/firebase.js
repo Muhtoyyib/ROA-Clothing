@@ -61,4 +61,4 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
     return await signInWithEmailAndPassword(auth, email, password);
 }
 
-// Testing git
+// Testing a lot things
