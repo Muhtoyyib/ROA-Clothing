@@ -41,6 +41,8 @@ export default function SignUpForm (){
             } else{
                 console.log(`User creation encountered an ${error}`);
             }
+
+            resetFormFields();
         }
     }
 
