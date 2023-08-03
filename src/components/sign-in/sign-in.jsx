@@ -32,9 +32,11 @@ export default function SignInForm (){
         try{
             const {user} = await signInAuthUserWithEmailAndPassword(email, password);
 
-            console.log(user);
+
+            console.log(user.email);
 
             resetFormFields();
+
         } catch (error){
 
             switch(error.code){
@@ -76,7 +78,7 @@ export default function SignInForm (){
                 }}/>
 
                 <div className="buttons-container">
-                    <Button type='submit' buttonText={`SIGN IN`}/> 
+                    <Button type='submit' buttonText={`SIGN IN`} />
                     <Button type='button' buttonText={`GOOGLE SIGN IN`} buttonType={`google`} onClick={signInWithGoogle}/>
                 </div>
             </form>
