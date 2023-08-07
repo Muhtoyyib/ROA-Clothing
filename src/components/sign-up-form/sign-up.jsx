@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+
 import FormInput from "../form-input/form-input";
 import Button from "../button/button";
-import './sign-up.scss'
+import { UserContext } from "../../context/user";
 import { createAuthUserWithEmailAndPassword, createUserDocFromAuth } from "../../utils/firebase/firebase";
+
+import './sign-up.scss'
+
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const defaultFormFields = {
@@ -15,6 +19,7 @@ export const defaultFormFields = {
 export default function SignUpForm (){
     const [formFields, setFormFields] = useState(defaultFormFields);
     const {displayName, email, password, confirmPassword} = formFields;
+    const { setCurrentUser } = useContext(UserContext);
 
     console.log(formFields);
 
@@ -32,8 +37,9 @@ export default function SignUpForm (){
 
         try{
             const {user}= await createAuthUserWithEmailAndPassword(email, password);
+            setCurrentUser(user);
 
-            await createUserDocFromAuth(user, {displayName})
+            await createUserDocFromAuth(user, {displayName});
             resetFormFields();
         } catch (error){
             if(error.code === 'auth/email-already-in-use'){
