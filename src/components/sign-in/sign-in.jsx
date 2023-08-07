@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useState , useContext} from "react";
+import { signInWithGooglePopup, createUserDocFromAuth, signInAuthUserWithEmailAndPassword} from "../../utils/firebase/firebase";
+
+import { UserContext } from "../../context/user";
 import FormInput from "../form-input/form-input";
 import Button from "../button/button";
 import './sign-in.scss'
-import { signInWithGooglePopup, createUserDocFromAuth, signInAuthUserWithEmailAndPassword} from "../../utils/firebase/firebase";
+
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const defaultFormFields = {
@@ -14,7 +17,7 @@ export default function SignInForm (){
     const [formFields, setFormFields] = useState(defaultFormFields);
     const {email, password} = formFields;
 
-    console.log(formFields);
+    const { setCurrentUser } = useContext(UserContext)
 
     const handleChange = (event) => {
         const {name, value} = event.target;
@@ -31,12 +34,9 @@ export default function SignInForm (){
 
         try{
             const {user} = await signInAuthUserWithEmailAndPassword(email, password);
-
-
-            console.log(user.email);
+            setCurrentUser(user);
 
             resetFormFields();
-
         } catch (error){
 
             switch(error.code){
