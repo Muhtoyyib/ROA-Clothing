@@ -33,16 +33,15 @@ const Category = () => {
   return (
      <>
       {directories.map(({title, id, imageUrl})=>(
-            
-                <div className='category-container' key={id}>
+        <div className='category-container' key={id}>
         
-                <div className='category-background' style={{backgroundImage: `url(${imageUrl})` }} /> 
-                <div className='category-body'>
-                    <h2>{title}</h2>
-                    <p>Shop now</p>
-                </div>
-        
-                </div>
+        <div className='category-background' style={{backgroundImage: `url(${imageUrl})` }} /> 
+        <div className='category-body'>
+            <h2>{title}</h2>
+            <p>Shop now</p>
+        </div>
+
+        </div>
             
         ))}
     </>

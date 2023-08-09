@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import { UserProvider } from './context/user';
+import { ProductsProvider } from './context/product';
 import Root from './routes/root';
-import Shop from './routes/shop';
+import Shop from './routes/shop/shop';
 import Authentication from './routes/authentication/authentication';
 import Index from './routes';
 
@@ -32,7 +33,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <UserProvider>
-      <RouterProvider router={router} />
+      <ProductsProvider>
+        <RouterProvider router={router} />
+      </ProductsProvider>
     </UserProvider>
   </React.StrictMode>,
 )
