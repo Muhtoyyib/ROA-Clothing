@@ -12,12 +12,6 @@ export const ProductsProvider = ({children}) => {
     const [products, setProduct] = useState(PRODUCTS);
     const value = { products};
 
-    // useEffect(()=>{
-    //     const products = setProduct(PRODUCTS);
-
-    //     return products;
-    // }, [])
-
     return(
         <ProductsContext.Provider value={value}>{children}</ProductsContext.Provider>
     )
