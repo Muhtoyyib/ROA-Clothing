@@ -6,6 +6,7 @@ export default function ProductCard ({ product }){
     // eslint-disable-next-line react/prop-types
     const { name, price, imageUrl } = product;
 
+
     return(
         <div className='product-card-container'>
             <img src={imageUrl} alt={`${name}`} />

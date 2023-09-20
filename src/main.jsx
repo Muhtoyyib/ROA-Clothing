@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import { UserProvider } from './context/user';
 import { ProductsProvider } from './context/product';
+import { CartProvider } from './context/cart-context';
 import Root from './routes/root';
 import Shop from './routes/shop/shop';
 import Authentication from './routes/authentication/authentication';
@@ -34,7 +35,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <UserProvider>
       <ProductsProvider>
-        <RouterProvider router={router} />
+        <CartProvider>
+          <RouterProvider router={router} />
+        </CartProvider>
       </ProductsProvider>
     </UserProvider>
   </React.StrictMode>,
