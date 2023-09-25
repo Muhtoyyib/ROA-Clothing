@@ -1,3 +1,6 @@
+import { useContext } from 'react';
+
+import { CartContext } from '../../context/cart-context';
 import Button from '../button/button';
 import './product-card.scss';
 
@@ -5,6 +8,10 @@ import './product-card.scss';
 export default function ProductCard ({ product }){
     // eslint-disable-next-line react/prop-types
     const { name, price, imageUrl } = product;
+    const { addItemToCart } = useContext(CartContext);
+
+    const addProductToCart = () => addItemToCart(product);
+
 
     return(
         <div className='product-card-container'>
@@ -15,7 +22,7 @@ export default function ProductCard ({ product }){
                 <span className='price'>{price}</span>
             </div>
             
-            <Button  buttonType='inverted' buttonText='Add to Cart' />
+            <Button onClick={addProductToCart} buttonType='inverted' buttonText='Add to Cart'/>
         </div>
     )
 }
