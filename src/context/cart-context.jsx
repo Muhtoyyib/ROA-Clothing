@@ -4,27 +4,45 @@ import { createContext, useState } from "react";
 const addCartItem = (cartItems, productToAdd) => {
     const existingCartItem = cartItems.find(cartItem => cartItem.id === productToAdd.id);
 
-    console.log(existingCartItem);
-
     if(existingCartItem){
-        let existingCartItemPosition = cartItems.indexOf(existingCartItem);
-        cartItems.splice(existingCartItemPosition, 1);
-        let newItem = {...existingCartItem, quantity: existingCartItem.quantity + 1}
-
-         // return cartItems.map((cartItem) => {
-        //     cartItem.id === productToAdd.id ? {...cartItem, quantity: cartItem.quantity + 1}
-        //     : cartItem
-        // })
+        let itemIndex = cartItems.indexOf(existingCartItem);
+        cartItems[itemIndex] = {...existingCartItem, quantity: existingCartItem.quantity + 1}
         
-        return [...cartItems, newItem];
+        return [...cartItems];
     }
     
     return [...cartItems, {...productToAdd, quantity: 1}]
 }
 
+const removeCartItem = (cartItems, itemToRemove) => {
+    const itemPosition = cartItems.indexOf(itemToRemove);
+    cartItems.splice(itemPosition, 1);
+
+
+    return [...cartItems];
+}
+
+
+const decreaseCartItemQuantity = (cartItems, itemToRemove) => {
+    const existingCartItem = cartItems.find(cartItem => cartItem.id === itemToRemove.id);
+    let itemIndex = cartItems.indexOf(existingCartItem);
+
+    if(existingCartItem.quantity === 1){
+        cartItems.splice(itemIndex, 1);
+        
+        return [...cartItems];
+    } else {
+        cartItems[itemIndex] = {...existingCartItem, quantity: existingCartItem.quantity - 1}
+    }
+
+    return [...cartItems];
+}
+
 export const CartContext = createContext({
     cartItems: [],
-    addItemToCart: () => {}
+    addItemToCart: () => {},
+    removeItemFromCart: () => {},
+    decreaseItemQuantity: () => {}
 });
 
 // eslint-disable-next-line react/prop-types
@@ -35,7 +53,16 @@ export const CartProvider = ({children}) => {
         setCartItems(addCartItem(cartItems, productToAdd));
     }
 
-    const value = {cartItems, addItemToCart};
+    const removeItemFromCart = (itemToRemove) => {
+        setCartItems(removeCartItem(cartItems, itemToRemove));
+    }
+
+    const decreaseItemQuantity = (item) => {
+        setCartItems(decreaseCartItemQuantity(cartItems, item))
+    }
+
+
+    const value = {cartItems, addItemToCart, removeItemFromCart, decreaseItemQuantity };
   
     
     return(
