@@ -8,6 +8,7 @@ import { CartProvider } from './context/cart-context';
 import Root from './routes/root';
 import Shop from './routes/shop/shop';
 import Authentication from './routes/authentication/authentication';
+import Checkout from './routes/checkout/checkout';
 import Index from './routes';
 
 import './index.scss'
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
         path:'/auth',
         element: <Authentication />
       },
+      {
+        path: '/checkout',
+        element: <Checkout />
+      }
     ]
   },
   
