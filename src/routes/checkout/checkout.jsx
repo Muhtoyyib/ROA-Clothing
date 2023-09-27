@@ -7,10 +7,10 @@ import './checkout.scss'
 
 
 export default function Checkout(){
-    const { cartItems, removeItemFromCart , addItemToCart, decreaseItemQuantity} = useContext(CartContext);
-    const total = cartItems.map((item) => item.price).reduce((acct, price) => {
-        return acct + price;
-    }, 0)
+    const { cartItems, removeItemFromCart , addItemToCart, decreaseItemQuantity, cartTotal} = useContext(CartContext);
+    // const total = cartItems.map((item) => item.price).reduce((acct, price) => {
+    //     return acct + price;
+    // }, 0)
 
     return(
         <div className="checkout-container">
@@ -41,7 +41,7 @@ export default function Checkout(){
              increaseItemQuantity={addItemToCart} decreaseItemQuantity={decreaseItemQuantity}/>
             ))}
 
-            <span className="total">Total: {total}</span>
+            <span className="total">Total: ${cartTotal}</span>
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 // eslint-disable-next-line no-unused-vars
 const addCartItem = (cartItems, productToAdd) => {
@@ -42,12 +42,32 @@ export const CartContext = createContext({
     cartItems: [],
     addItemToCart: () => {},
     removeItemFromCart: () => {},
-    decreaseItemQuantity: () => {}
+    decreaseItemQuantity: () => {},
+    cartCount: 0,
+    cartTotal: 0
 });
 
 // eslint-disable-next-line react/prop-types
 export const CartProvider = ({children}) => {
     const [cartItems, setCartItems] = useState([]);
+    const [cartCount, setCartCount] = useState(0);
+    const [cartTotal, setCartTotal] = useState(0);
+
+    useEffect(() => {
+        const newCartCount = cartItems.reduce(
+            (total, cartItem) => total + cartItem.quantity, 0
+        );
+        setCartCount(newCartCount);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [cartItems])
+
+    useEffect(() => {
+        const newCartTotal = cartItems.reduce(
+            (total, cartItem) => total + cartItem.price, 0
+        );
+        setCartTotal(newCartTotal);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [cartItems])
 
     const addItemToCart = (productToAdd) => {
         setCartItems(addCartItem(cartItems, productToAdd));
@@ -62,7 +82,7 @@ export const CartProvider = ({children}) => {
     }
 
 
-    const value = {cartItems, addItemToCart, removeItemFromCart, decreaseItemQuantity };
+    const value = {cartItems, addItemToCart, removeItemFromCart, decreaseItemQuantity, cartTotal, cartCount };
   
     
     return(
