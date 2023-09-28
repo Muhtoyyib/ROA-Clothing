@@ -2,7 +2,32 @@
     display: flex;
     justify-content: space-between;
     width: 900px;
-    margin: 30px auto;
-    
+    margin: 30px auto; 
 }
+
+/* Mobile styles */
+@media (min-width: 320px) and (max-width: 480px) {
+    .auth-container{
+        display: block;
+        width: 85%;
+        margin: auto;
+    }
+}
+  
+/* Tablet styles */
+@media (min-width: 768px) and (max-width: 991px) {
+    .auth-container{
+        width: 85%;
+        margin: auto;
+    }
+}
+  
+/* iPad styles */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .auth-container{
+        width: 85%;
+        margin: auto;
+    }
+}
+  
 

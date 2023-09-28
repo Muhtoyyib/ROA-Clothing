@@ -14,6 +14,7 @@ const addCartItem = (cartItems, productToAdd) => {
     return [...cartItems, {...productToAdd, quantity: 1}]
 }
 
+
 const removeCartItem = (cartItems, itemToRemove) => {
     const itemPosition = cartItems.indexOf(itemToRemove);
     cartItems.splice(itemPosition, 1);
@@ -37,6 +38,7 @@ const decreaseCartItemQuantity = (cartItems, itemToRemove) => {
 
     return [...cartItems];
 }
+
 
 export const CartContext = createContext({
     cartItems: [],
@@ -63,7 +65,7 @@ export const CartProvider = ({children}) => {
 
     useEffect(() => {
         const newCartTotal = cartItems.reduce(
-            (total, cartItem) => total + cartItem.price, 0
+            (total, cartItem) => total + (cartItem.price * cartItem.quantity), 0
         );
         setCartTotal(newCartTotal);
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -19,3 +19,21 @@
     bottom: 12px;
   }
 }
+
+/* Mobile styles */
+@media (min-width: 320px) and (max-width: 480px) {
+  .cart-icon-container {
+    margin-top: 0.6rem;
+  }
+}
+
+/* Tablet styles */
+@media (min-width: 768px) and (max-width: 991px) {
+  /* Your tablet styles here */
+}
+
+/* iPad styles */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Your iPad styles here */
+}
+

@@ -54,7 +54,7 @@ export default function SignInForm (){
         <div className="sign-in-container">
             <h2>Already have an account?</h2>
 
-            <span>Sign in with your email and password</span>
+            <span className="sign-in-paragraph">Sign in with your email and password</span>
             <form onSubmit={handleSubmit}>
                 <FormInput label='Email' inputOptions = {{
                     type: "email", 
@@ -72,7 +72,7 @@ export default function SignInForm (){
                 }}/>
 
                 <div className="buttons-container">
-                    <Button type='submit' buttonText={`SIGN IN`} />
+                    <Button type='submit' buttonText={`SIGN IN`}/>
                     <Button type='button' buttonText={`GOOGLE SIGN IN`} buttonType={`google`} onClick={signInWithGoogle}/>
                 </div>
             </form>
