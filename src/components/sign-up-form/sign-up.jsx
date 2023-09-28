@@ -19,8 +19,6 @@ export default function SignUpForm (){
     const [formFields, setFormFields] = useState(defaultFormFields);
     const {displayName, email, password, confirmPassword} = formFields;
 
-    console.log(formFields);
-
     const resetFormFields = () => {
         setFormFields(defaultFormFields);
     }
@@ -59,7 +57,7 @@ export default function SignUpForm (){
         <div className="sign-up-container">
             <h2>Don&apos;t have an account?</h2>
 
-            <span>Sign up with your email and password</span>
+            <span className="sign-up-paragraph">Sign up with your email and password</span>
             <form onSubmit={handleSubmit}>
                 <FormInput label='Display Name' inputOptions ={{
                     type: "text", 

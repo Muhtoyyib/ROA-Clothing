@@ -12,3 +12,40 @@
         justify-content: space-between;
     }
 }
+
+/* Mobile styles */
+@media (min-width: 320px) and (max-width: 480px) {
+    .sign-in-container{
+        width: 250px;
+    
+        h2{
+            text-align: center;
+        }
+
+        .sign-in-paragraph{
+            text-align: center;
+        }
+    
+        .buttons-container{
+            display: block;
+        }
+    }
+}
+  
+/* Tablet styles */
+@media (min-width: 768px) and (max-width: 991px) {
+/* Your tablet styles here */
+}
+  
+/* iPad styles */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .sign-in-container{
+        width: 300px;
+        margin-left: -2rem;
+
+        .buttons-container{
+            margin-left: -1.5rem;
+        }
+    }
+}
+  

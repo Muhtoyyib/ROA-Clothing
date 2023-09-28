@@ -21,7 +21,7 @@ export default function CheckoutItem ({ checkoutItem, removeItem , increaseItemQ
                 <span className='value'> {quantity} </span>
                 <div onClick={increaseQuantity} className='arrow'> &#10095; </div>
             </span>
-            <span className="price"> {price} </span>
+            <span className="price"> ${price} </span>
 
             <div className="remove-button" onClick={removeProductFromCart}>&#10005;</div>
         </div>

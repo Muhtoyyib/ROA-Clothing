@@ -25,3 +25,61 @@
   }
   
 }
+
+/* Mobile styles */
+@media (min-width: 320px) and (max-width: 480px) {
+  .navigation {
+    .logo-container {
+      padding: 1.8rem;
+    }
+  
+    .nav-links-container {
+      width: 70%;
+
+      .nav-link {
+        padding: 2rem 2rem 1rem 0.7rem;
+      }
+    }
+    
+  }
+}
+
+/* Tablet styles */
+// @media (min-width: 768px) and (max-width: 991px) {
+//   .navigation {
+//     .logo-container {
+//       width: 10rem;
+//       padding: 25px;
+//     }
+  
+//     .nav-links-container {
+//       width: 50%;
+//       height: 100%;
+//       display: flex;
+//       align-items: center;
+//       justify-content: flex-end;
+  
+//       .nav-link {
+//         padding: 10px 15px;
+//         cursor: pointer;
+//       }
+//     }
+    
+//   }
+// }
+
+/* iPad styles */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .navigation {
+    .nav-links-container {
+      margin-top: 1.3rem;
+  
+      .nav-link {
+        padding: 10px 15px;
+        cursor: pointer;
+      }
+    }
+    
+  }
+}
+

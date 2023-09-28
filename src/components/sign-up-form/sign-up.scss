@@ -7,3 +7,34 @@
         margin: 10px 0;
     }
 }
+
+/* Mobile styles */
+@media (min-width: 320px) and (max-width: 480px) {
+    .sign-up-container{
+        width: 250px;
+        margin-top: 2rem;
+    
+        h2{
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .sign-up-paragraph{
+            text-align: center;
+        }
+    }
+}
+  
+  /* Tablet styles */
+  @media (min-width: 768px) and (max-width: 991px) {
+    /* Your tablet styles here */
+  }
+  
+/* iPad styles */
+@media (min-width: 768px) and (max-width: 1024px) {
+ .sign-up-container{
+    width: 650px;
+    margin-left: 7rem;
+ }
+}
+  

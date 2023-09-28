@@ -4,5 +4,15 @@
     flex-wrap: wrap;
     justify-content: space-between;
   }
+
+/* Mobile styles */
+@media (min-width: 320px) and (max-width: 480px) {
+  .categories-container{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+
   
   
