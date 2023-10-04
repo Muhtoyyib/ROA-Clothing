@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import './category.styles.scss'
 
 const Category = () => {
@@ -30,15 +32,18 @@ const Category = () => {
         }
     ]
 
+    const navigate = useNavigate();
+
   return (
      <>
       {directories.map(({title, id, imageUrl})=>(
         <div className='category-container' key={id}>
         
         <div className='category-background' style={{backgroundImage: `url(${imageUrl})` }} /> 
-        <div className='category-body'>
+        <div onClick={() => navigate(`shop/${title}`)} className='category-body'>
             <h2>{title}</h2>
-            <p>Shop now</p>
+            <p>   Shop now
+            </p>
         </div>
 
         </div>
