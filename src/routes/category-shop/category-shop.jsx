@@ -9,7 +9,6 @@ import './category-shop.scss'
 // eslint-disable-next-line react-refresh/only-export-components
 export function loader({ params }){
     const categoryName = params.categoryName;
-    console.log(categoryName);
 
     return { categoryName };
 }

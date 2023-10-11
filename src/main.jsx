@@ -1,8 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { Provider } from 'react-redux';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import { UserProvider } from './context/user';
+import { store } from './store/store';
+// import { UserProvider } from './context/user';
 import { CategoriesProvider } from './context/categories-map';
 import { CartProvider } from './context/cart-context';
 import Root from './routes/root';
@@ -44,12 +46,14 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <UserProvider>
+  <Provider store={store}>
+{/*<UserProvider> */}
       <CategoriesProvider>
         <CartProvider>
           <RouterProvider router={router} />
         </CartProvider>
       </CategoriesProvider>
-    </UserProvider>
+   {/* </UserProvider> */}
+  </Provider>
   </React.StrictMode>,
 )
