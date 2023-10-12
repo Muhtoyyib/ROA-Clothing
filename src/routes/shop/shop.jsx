@@ -14,7 +14,7 @@ const Shop = () => {
     {
       Object.keys(categoriesMap).map( title => (
         <>
-        <h2 className="category-name">
+        <h2 className="category-name" key={title}>
           <Link to={ currentPath === '/shop' ? `${title}`: `shop/${title}` } key={title}> 
             { title.toUpperCase() }
           </Link>

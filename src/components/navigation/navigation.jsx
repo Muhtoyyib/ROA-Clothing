@@ -1,17 +1,18 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { signOutUser } from "../../utils/firebase/firebase";
+import { useSelector } from "react-redux";
+import { seletCurrentUser } from "../../store/user/user-selector";
 
 import CartIcon from "../cart-icon/cart-icon";
 import CardDropdown from "../card-dropdown/card-dropdown";
-import { UserContext } from "../../context/user";
 import CrownSvg from "../../assets/crown-svg";
 
 import './navigation.styles.scss'
 
 
 const Navigation = () => {
-  const {currentUser} = useContext(UserContext);
+  const currentUser = useSelector(seletCurrentUser)
 
   const useToggle = (initialState) => {
     const [toggleValue, setToggleValue] = useState(initialState);
