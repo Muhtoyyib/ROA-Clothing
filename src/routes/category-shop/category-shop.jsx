@@ -1,8 +1,10 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useLoaderData} from 'react-router-dom';
+import { useSelector } from "react-redux";
+
+import { selectCategoriesMap } from "../../store/categories/categories-selector";
 
 import ProductCard from "../../components/product-card/product-card";
-import { CategoriesContext } from "../../context/categories-map";
 import '../shop/shop.scss';
 import './category-shop.scss'
 
@@ -15,7 +17,7 @@ export function loader({ params }){
 
 export default function CategoryShop (){
     const { categoryName } = useLoaderData();
-    const { categoriesMap } = useContext( CategoriesContext);
+    const categoriesMap  = useSelector(selectCategoriesMap);
     const [products, setProducts] = useState(categoriesMap[categoryName]);
 
     useEffect(() => {
