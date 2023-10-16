@@ -1,12 +1,13 @@
-import { useContext } from "react";
+import { useSelector } from "react-redux";
+
+import { selectCategoriesMap } from "../../store/categories/categories-selector";
 
 import ProductCard from "../../components/product-card/product-card";
-import { CategoriesContext } from "../../context/categories-map";
 import './shop.scss';
 import { Link } from "react-router-dom";
 
 const Shop = () => {
-  const { categoriesMap } = useContext( CategoriesContext);
+  const categoriesMap = useSelector( selectCategoriesMap );
   const currentPath = window.location.pathname;
 
   return (

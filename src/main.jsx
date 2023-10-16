@@ -5,7 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import { store } from './store/store';
 // import { UserProvider } from './context/user';
-import { CategoriesProvider } from './context/categories-map';
+// import { CategoriesProvider } from './context/categories-map';
 import { CartProvider } from './context/cart-context';
 import Root from './routes/root';
 import Shop from './routes/shop/shop';
@@ -48,11 +48,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
   <Provider store={store}>
 {/*<UserProvider> */}
-      <CategoriesProvider>
+{/*<CategoriesProvider> */}
         <CartProvider>
           <RouterProvider router={router} />
         </CartProvider>
-      </CategoriesProvider>
+{/*</CategoriesProvider> */}
    {/* </UserProvider> */}
   </Provider>
   </React.StrictMode>,
