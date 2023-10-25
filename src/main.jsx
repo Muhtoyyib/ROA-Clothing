@@ -6,7 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { store } from './store/store';
 // import { UserProvider } from './context/user';
 // import { CategoriesProvider } from './context/categories-map';
-import { CartProvider } from './context/cart-context';
+// import { CartProvider } from './context/cart-context';
 import Root from './routes/root';
 import Shop from './routes/shop/shop';
 import CategoryShop, {loader as categoryShopLoader} from './routes/category-shop/category-shop';
@@ -49,9 +49,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
 {/*<UserProvider> */}
 {/*<CategoriesProvider> */}
-        <CartProvider>
+       {/* <CartProvider> */}
           <RouterProvider router={router} />
-        </CartProvider>
+        {/*</CartProvider>*}
 {/*</CategoriesProvider> */}
    {/* </UserProvider> */}
   </Provider>

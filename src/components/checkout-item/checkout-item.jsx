@@ -1,13 +1,20 @@
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+
+import { clearItemFromCart, addItemToCart, decreaseItemQuantity } from '../../store/cart/cart-action';
+import { selectCartItems } from '../../store/cart/cart-selector';
 import './checkout-item.scss';
 
 // eslint-disable-next-line react/prop-types
-export default function CheckoutItem ({ checkoutItem, removeItem , increaseItemQuantity, decreaseItemQuantity}){
+export default function CheckoutItem ({ checkoutItem }){
 
     // eslint-disable-next-line react/prop-types
     const { name, imageUrl , price ,quantity}= checkoutItem;
-    const removeProductFromCart = () => removeItem(checkoutItem);
-    const increaseQuantity = () => increaseItemQuantity(checkoutItem);
-    const decreaseQuantity = () => decreaseItemQuantity(checkoutItem);
+    const dispatch = useDispatch();
+    const cartItems = useSelector(selectCartItems);
+    const removeProductFromCart = () => dispatch(clearItemFromCart(cartItems, checkoutItem));
+    const increaseQuantity = () => dispatch(addItemToCart(cartItems, checkoutItem));
+    const decreaseQuantity = () => dispatch(decreaseItemQuantity(cartItems, checkoutItem));
 
     return(
         <div className="checkout-item-container ">
