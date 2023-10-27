@@ -4,14 +4,10 @@ import { useDispatch } from "react-redux";
 
 
 import { setCurrentUser } from "../store/user/user.action";
-import { setCategoriesMap } from "../store/categories/categories-action";
+import { fetchCategoriesAsync } from "../store/categories/categories-action";
 
 
 import { onAuthStateChangedListerner, createUserDocFromAuth } from "../utils/firebase/firebase.js";
-import { getCategoriesAndDocuments } from "../utils/firebase/firebase";
-
-
-
 
 import Navigation from "../components/navigation/navigation";
 
@@ -32,14 +28,9 @@ const Root = () => {
 }, [dispatch]);
 
   useEffect(()=>{
-      const getCategoriesMap = async () => {
-          const categoryMap = await getCategoriesAndDocuments();
-
-          dispatch(setCategoriesMap(categoryMap))
-      }
-
-      getCategoriesMap();
-  }, [dispatch])
+    dispatch(fetchCategoriesAsync())
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
 
   return (

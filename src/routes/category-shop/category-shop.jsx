@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useLoaderData} from 'react-router-dom';
 import { useSelector } from "react-redux";
 
-import { selectCategoriesMap } from "../../store/categories/categories-selector";
+import { selectCategoriesMap} from "../../store/categories/categories-selector";
 
 import ProductCard from "../../components/product-card/product-card";
 import '../shop/shop.scss';
@@ -18,6 +18,7 @@ export function loader({ params }){
 export default function CategoryShop (){
     const { categoryName } = useLoaderData();
     const categoriesMap  = useSelector(selectCategoriesMap);
+    // const isLoading = useSelector(selectCategoriesIsLoading);
     const [products, setProducts] = useState(categoriesMap[categoryName]);
 
     useEffect(() => {
