@@ -27,10 +27,7 @@ const Root = () => {
 // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [dispatch]);
 
-  useEffect(()=>{
-    dispatch(fetchCategoriesAsync())
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  
 
 
   return (

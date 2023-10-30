@@ -5,7 +5,7 @@ export const CATEGORIES_INITIAL_STATE = {
     isLoading: false,
     error: null
 }
-const { FETCH_CATEGORIES_SUCESS , FETCH_CATEGORIES_START, FETCH_CATEGORIES_FAILED} = CATEGORIES_ACTION_TYPES;
+const { FETCH_CATEGORIES_SUCCESS , FETCH_CATEGORIES_START, FETCH_CATEGORIES_FAILED} = CATEGORIES_ACTION_TYPES;
 export const categoriesReducer = (state = CATEGORIES_INITIAL_STATE, action = {}) => {
     const { type, payload } = action;
 
@@ -13,11 +13,8 @@ export const categoriesReducer = (state = CATEGORIES_INITIAL_STATE, action = {})
         case FETCH_CATEGORIES_START:
             return { ...state, isLoading: true}
 
-        case FETCH_CATEGORIES_SUCESS: 
-        return{
-            ...state,
-            categoriesMap: payload,
-            isLoading: false
+        case FETCH_CATEGORIES_SUCCESS: 
+        return{ ...state, categoriesMap: payload, isLoading: false
         }
 
         case FETCH_CATEGORIES_FAILED:

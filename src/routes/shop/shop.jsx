@@ -1,7 +1,10 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 
 import { selectCategoriesMap} from "../../store/categories/categories-selector";
+import { fetchCategoriesAsync } from "../../store/categories/categories-action";
 
 import ProductCard from "../../components/product-card/product-card";
 // import Spinner from "../../components/spinner/spinner.componet";
@@ -9,7 +12,13 @@ import ProductCard from "../../components/product-card/product-card";
 import './shop.scss';
 
 const Shop = () => {
+  const dispatch  = useDispatch();
+  useEffect(() => {
+  dispatch(fetchCategoriesAsync())
+  }, [])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const categoriesMap = useSelector( selectCategoriesMap );
+  console.log(categoriesMap);
   // const isLoading = useSelector( selectCategoriesIsLoading );
   const currentPath = window.location.pathname;
 
