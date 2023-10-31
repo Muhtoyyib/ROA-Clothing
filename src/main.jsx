@@ -3,8 +3,11 @@ import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import { PersistGate } from 'redux-persist/integration/react';
+import { Elements } from '@stripe/react-stripe-js';
+import { stripePromise }from './utils/stripe/stripe.utils';
 
+
+import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './store/store';
 // import { UserProvider } from './context/user';
 // import { CategoriesProvider } from './context/categories-map';
@@ -50,7 +53,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
-      <RouterProvider router={router} />
+      <Elements stripe={stripePromise}>
+        <RouterProvider router={router} />
+      </Elements>
     </PersistGate>
   </Provider>
   </React.StrictMode>,
