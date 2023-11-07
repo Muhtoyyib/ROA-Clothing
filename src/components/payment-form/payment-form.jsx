@@ -43,11 +43,11 @@ export default function PaymentForm(){
 
         console.log(response);
 
-        const { paymenIntent: { client_secret }} = response;
+        const clientSecret = response.paymentIntent.client_secret;
 
-        console.log(client_secret);
+        console.log(clientSecret);
 
-        const paymentResult = await stripe.confirmCardPayment(client_secret, {
+        const paymentResult = await stripe.confirmCardPayment( clientSecret, {
             payment_method: {
                 card: elements.getElement(CardElement),
                 billing_details: {
