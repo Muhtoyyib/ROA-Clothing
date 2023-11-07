@@ -56,6 +56,9 @@ export default function PaymentForm(){
             }
         })
 
+        console.log(paymentResult);
+        console.log(paymentResult.error);
+
         if(paymentResult.error){
             alert(paymentResult.error)
         } else {
