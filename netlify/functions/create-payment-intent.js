@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-undef
 require("dotenv").config();
 // eslint-disable-next-line no-undef
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const stripe = require("stripe")('sk_test_51O7RXbSHWkYfhcFtUmp9YWqzjbEUfuuE9OMbjRajsR6vireYb9XWQn2Y04LQ29xdMxtUqGFbmirYxx0zGE0ZC9FL00OhWY7c7T');
 
 // eslint-disable-next-line no-undef
 exports.handler = async (event) => {
