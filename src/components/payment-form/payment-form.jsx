@@ -1,4 +1,10 @@
+import { useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import { useSelector } from "react-redux";
+
+import { selectCartTotal } from "../../store/cart/cart-selector";
+import { seletCurrentUser } from "../../store/user/user-selector";
+
 
 import { PaymentFormContainer, FormContainer } from "./payment-form.styles";
 
@@ -7,24 +13,10 @@ import Button from "../button/button";
 export default function PaymentForm(){
     const stripe = useStripe();
     const elements = useElements();
+    const amount = useSelector(selectCartTotal);
+    const currentUser = useSelector(seletCurrentUser);
+    const [isProcessingPayment, setIsProcessingPayment] = useState(false)
 
-    // eslint-disable-next-line no-unused-vars
-    // const cardElementOptions = {
-    //     style: {
-    //         base: {
-    //             fontSize: '16px',
-    //             color: '#424770',
-    //             letterSpacing: '0.025em',
-    //             fontFamily: 'Source Code Pro, monospace',
-    //             '::placeholder': {
-    //                 color: '#aab7c4',
-    //             },
-    //         },
-    //         invalid: {
-    //             color: '#9e2146',
-    //         },
-    //     },
-    // };
 
     const paymentHandler = async (e) => {
         e.preventDefault();
@@ -33,12 +25,14 @@ export default function PaymentForm(){
             return;
         }
 
+        setIsProcessingPayment(true)
+
         const response = await fetch('/.netlify/functions/create-payment-intent', {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({amount: 10000}),
+            body: JSON.stringify({ amount: amount * 100  }),
         }).then(res => res.json()) 
 
         console.log(response);
@@ -51,10 +45,12 @@ export default function PaymentForm(){
             payment_method: {
                 card: elements.getElement(CardElement),
                 billing_details: {
-                    name: 'Akande Olalekan'
+                    name: currentUser ? currentUser.displayName : 'guest',
                 }
             }
         })
+
+        setIsProcessingPayment(false);
 
         if(paymentResult.error){
             alert(paymentResult.error)
@@ -70,7 +66,7 @@ export default function PaymentForm(){
             <FormContainer onSubmit={paymentHandler}>
                 <h2>Credit or Debit Card: </h2>
                 <CardElement />
-                <Button buttonText={`Pay now`} buttonType={`inverted`} /> 
+                <Button disabled={isProcessingPayment} buttonText={`Pay now`} buttonType={`inverted`} /> 
                 <p>
                     <small>
                         By clicking &quot;Pay Now&quot;, you agree to our Terms and Conditions and Privacy Policy.
