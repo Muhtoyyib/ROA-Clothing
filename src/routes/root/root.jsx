@@ -1,15 +1,15 @@
 import { useEffect } from "react";
 import { Outlet} from "react-router-dom";
 import { useDispatch } from "react-redux";
+import './root.scss'
 
 
-import { setCurrentUser } from "../store/user/user.action";
-import { fetchCategoriesAsync } from "../store/categories/categories-action";
+import { setCurrentUser } from "../../store/user/user.action.js";
 
 
-import { onAuthStateChangedListerner, createUserDocFromAuth } from "../utils/firebase/firebase.js";
+import { onAuthStateChangedListerner, createUserDocFromAuth } from "../../utils/firebase/firebase.js";
 
-import Navigation from "../components/navigation/navigation";
+import Navigation from "../../components/navigation/navigation.jsx";
 
 
 const Root = () => {
@@ -26,8 +26,6 @@ const Root = () => {
     return unsubscribe;
 // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [dispatch]);
-
-  
 
 
   return (

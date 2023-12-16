@@ -51,15 +51,16 @@ export default function PaymentForm(){
         })
 
         setIsProcessingPayment(false);
-        
-        console.log(paymentResult);
-        console.log(paymentResult.error);
+
 
         if(paymentResult.error){
-            alert(paymentResult.error)
+            alert(paymentResult.error);
+            console.log(paymentResult.error);
+            console.log(paymentResult.paymentIntent.status);
         } else {
-            if(paymentResult.paymentIntent.status === 'succeeded'){
-                alert('payment successful')
+            if(paymentResult.paymentIntent.status == 'succeeded'){
+                alert('payment successful');
+                console.log(paymentResult.paymentIntent.status);
             }
         }
     };

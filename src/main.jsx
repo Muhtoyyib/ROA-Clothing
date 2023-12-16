@@ -11,7 +11,7 @@ import { store, persistor } from './store/store';
 // import { UserProvider } from './context/user';
 // import { CategoriesProvider } from './context/categories-map';
 // import { CartProvider } from './context/cart-context';
-import Root from './routes/root';
+import Root from './routes/root/root';
 import Shop from './routes/shop/shop';
 import CategoryShop, {loader as categoryShopLoader} from './routes/category-shop/category-shop';
 import Authentication from './routes/authentication/authentication';
