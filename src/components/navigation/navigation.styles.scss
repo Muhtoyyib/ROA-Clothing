@@ -4,6 +4,8 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 25px;
+  color: #ced4da;
+ 
 
   .logo-container {
     height: 100%;
@@ -21,6 +23,7 @@
     .nav-link {
       padding: 10px 15px;
       cursor: pointer;
+      color: #ced4da;
     }
   }
   

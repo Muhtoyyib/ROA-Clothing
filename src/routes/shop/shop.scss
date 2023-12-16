@@ -10,24 +10,29 @@
     font-size: 2rem;
 }
 
-/* Mobile styles */
-@media (min-width: 320px) and (max-width: 480px) {
-    .products-container{
-        grid-template-columns: repeat(1, 1fr);
-    }
+// Large screens
+@media (max-width: 1800px){
+
 }
-  
-// /* Tablet styles */
-// @media (min-width: 768px) and (max-width: 991px) {
-//     .products-container{
-//         grid-template-columns: repeat(1, 1fr);
-//     }
-// }
-  
-/* iPad styles */
-@media (min-width: 768px) and (max-width: 1024px) {
+
+// Tab landscape
+@media (max-width: 1200px){
     .products-container{
         grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+// Tab portrait
+@media (max-width: 900px){
+    .products-container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+// Mobile
+@media (max-width: 600px){
+    .products-container{
+        grid-template-columns: repeat(1, 1fr);
     }
 }
   
