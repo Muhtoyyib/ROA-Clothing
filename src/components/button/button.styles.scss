@@ -54,11 +54,6 @@
   }
 }
 
-/* Tablet styles */
-@media (min-width: 768px) and (max-width: 991px) {
-  /* Your tablet styles here */
-}
-
 /* iPad styles */
 @media (min-width: 768px) and (max-width: 1024px) {
   .button-container {
@@ -67,3 +62,18 @@
     margin-left: 1rem;
   }
 }
+
+/* Tablet styles */
+@media (min-width: 768px) and (max-width: 991px) {
+  /* Your tablet styles here */
+}
+
+/* Mobile styles */
+@media (max-width: 600px) {
+  .button-container {
+    min-width: 80%;
+    width: auto;
+    margin-top: 1rem;
+  }
+}
+
