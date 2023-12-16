@@ -51,9 +51,6 @@ export default function PaymentForm(){
         })
 
         setIsProcessingPayment(false);
-        
-        console.log(paymentResult);
-        console.log(paymentResult.error);
 
         if(paymentResult.error){
             alert(paymentResult.error)
