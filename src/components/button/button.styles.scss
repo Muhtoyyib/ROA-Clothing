@@ -46,11 +46,21 @@
 }
 
 /* Mobile styles */
-@media (min-width: 320px) and (max-width: 480px) {
+@media (max-width: 600px) {
   .button-container {
     min-width: 100%;
     width: auto;
     margin-top: 1rem;
+  }
+}
+
+
+/* iPad styles */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .button-container {
+    width: auto;
+    margin-top: 1rem;
+    margin-left: 1rem;
   }
 }
 
@@ -59,11 +69,11 @@
   /* Your tablet styles here */
 }
 
-/* iPad styles */
-@media (min-width: 768px) and (max-width: 1024px) {
+/* Mobile styles */
+@media (max-width: 600px) {
   .button-container {
+    min-width: 80%;
     width: auto;
     margin-top: 1rem;
-    margin-left: 1rem;
   }
 }
